@@ -23,14 +23,17 @@ app.post('/agent', async (req, res) => {
   }
 
   try {
+    // ⚠️ PLACEHOLDER RESPONSE - CLAWDBOT NOT YET WIRED ⚠️
     // TODO: Integrate with actual Clawdbot/Claude API
-    // For now, this is a placeholder response
     const response = {
-      reply: `CloudBot received: "${message}". Integration with Claude API pending.`,
+      placeholder: true,
+      status: 'DEMO_MODE',
+      reply: `Hello! This is a placeholder response. You said: "${message}"\n\nClawdbot integration with Claude API is pending. This gateway is ready to receive messages, but needs the actual AI backend connected.`,
       data: {
         timestamp: new Date().toISOString(),
         messageLength: message.length,
         context: context || null,
+        note: 'This is a demo response until Claude API is integrated',
       },
     }
 
@@ -49,9 +52,10 @@ app.get('/', (req, res) => {
   res.json({
     name: 'CloudBot Gateway',
     version: '1.0.0',
+    status: 'PLACEHOLDER - Claude API not yet integrated',
     endpoints: [
       { method: 'GET', path: '/health', description: 'Health check' },
-      { method: 'POST', path: '/agent', description: 'Send message to agent' },
+      { method: 'POST', path: '/agent', description: 'Send message to agent (placeholder response)' },
     ],
   })
 })
@@ -61,4 +65,5 @@ app.listen(PORT, '0.0.0.0', () => {
   console.log(`CloudBot Gateway running on port ${PORT}`)
   console.log(`Health: http://localhost:${PORT}/health`)
   console.log(`Agent: http://localhost:${PORT}/agent`)
+  console.log(`⚠️  NOTE: Running in PLACEHOLDER mode - Claude API not yet integrated`)
 })

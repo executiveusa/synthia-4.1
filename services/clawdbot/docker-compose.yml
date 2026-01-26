@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  cloudbot:
+    build: .
+    container_name: cloudbot-gateway
+    restart: unless-stopped
+    ports:
+      - "${CLOUDBOT_PORT:-18789}:18789"
+    environment:
+      - CLOUDBOT_PORT=18789
+      - NODE_ENV=production
+    volumes:
+      - cloudbot-data:/data
+    networks:
+      - cloudbot-network
+    labels:
+      # Coolify labels for automatic configuration
+      - "coolify.managed=true"
+      - "traefik.enable=true"
+      - "traefik.http.routers.cloudbot.rule=Host(`cloudbot.yourdomain.com`)"
+      - "traefik.http.routers.cloudbot.entrypoints=websecure"
+      - "traefik.http.routers.cloudbot.tls.certresolver=letsencrypt"
+      - "traefik.http.services.cloudbot.loadbalancer.server.port=18789"
+
+volumes:
+  cloudbot-data:
+    driver: local
+
+networks:
+  cloudbot-network:
+    driver: bridge

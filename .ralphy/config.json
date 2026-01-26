@@ -1,0 +1,36 @@
+{
+  "projectName": "cynthia",
+  "prdFile": "PRD.md",
+  "tasks": {
+    "build": {
+      "command": "pnpm build:web",
+      "workdir": ".",
+      "description": "Build frontend"
+    },
+    "lint": {
+      "command": "pnpm lint:web",
+      "workdir": ".",
+      "description": "Lint frontend"
+    },
+    "docker-build": {
+      "command": "cd services/clawdbot && docker build -t cloudbot-gateway .",
+      "workdir": ".",
+      "description": "Build backend Docker image"
+    },
+    "docker-test": {
+      "command": "cd services/clawdbot && docker-compose up -d && sleep 5 && curl http://localhost:18789/health",
+      "workdir": ".",
+      "description": "Test backend locally"
+    }
+  },
+  "successCriteria": [
+    "pnpm build:web exits with code 0",
+    "pnpm lint:web exits with code 0",
+    "docker build succeeds",
+    "No TODO comments in production files"
+  ],
+  "claude": {
+    "enabled": true,
+    "model": "claude-sonnet-4-5"
+  }
+}

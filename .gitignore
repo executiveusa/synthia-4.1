@@ -33,10 +33,21 @@ yarn-error.log*
 /public/workbox-*.js
 /public/sw.js
 
-# prefer yarn than npm
+# prefer pnpm
 package-lock.json
+yarn.lock
 
 report.*.json
 
 # .vscode Debugging
 .vscode/*-debug-profile
+
+# monorepo
+**/node_modules/
+**/.next/
+**/dist/
+**/build/
+
+# environment
+**/.env.local
+.env

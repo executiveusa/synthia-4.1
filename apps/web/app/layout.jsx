@@ -2,20 +2,43 @@ import { Layout } from '@/components/dom/Layout'
 import '@/global.css'
 
 export const metadata = {
-  title: 'Next.js + Three.js',
-  description: 'A minimal starter for Nextjs + React-three-fiber and Threejs.',
+  title: 'Kupuri Studios | Digital Soul in Mexico City',
+  description: 'Estudio creativo especializado en branding de alta gama, cine y experiencias digitales en CDMX. Creative studio specializing in high-end branding, film, and digital experiences.',
+  keywords: 'Kupuri, Studios, CDMX, Mexico City, Branding, Film, Digital Experiences, Creative Agency',
+  authors: [{ name: 'Kupuri Studios' }],
+  openGraph: {
+    title: 'Kupuri Studios | Alma en la Máquina',
+    description: 'Soul in the Machine. High-end creative studio in Mexico City.',
+    images: [
+      {
+        url: '/angel-storm.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Kupuri Studios - Electric CDMX',
+      },
+    ],
+    type: 'website',
+    locale: 'es_MX',
+    alternateLocale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Kupuri Studios',
+    description: 'Alma en la Máquina. Soul in the Machine.',
+    images: ['/angel-storm.webp'],
+  },
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/icons/apple-touch-icon.png',
+  },
+  manifest: '/manifest.json',
 }
 
 export default function RootLayout({ children }) {
   return (
-    <html lang='en' className='antialiased'>
-      {/*
-        <head /> will contain the components returned by the nearest parent
-        head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
+    <html lang='es' className='antialiased'>
       <head />
       <body>
-        {/* To avoid FOUT with styled-components wrap Layout with StyledComponentsRegistry https://beta.nextjs.org/docs/styling/css-in-js#styled-components */}
         <Layout>{children}</Layout>
       </body>
     </html>

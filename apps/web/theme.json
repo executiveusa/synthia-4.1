@@ -1,0 +1,145 @@
+{
+  "branding": {
+    "name": "Kupuri Studios",
+    "tagline": {
+      "es": "Alma en la Máquina",
+      "en": "Soul in the Machine"
+    },
+    "description": {
+      "es": "Estudio creativo especializado en branding de alta gama, cine y experiencias digitales en CDMX.",
+      "en": "Creative studio specializing in high-end branding, film, and digital experiences in Mexico City."
+    }
+  },
+  "colors": {
+    "dark": "#0A0A0C",
+    "bone": "#F9F6F2",
+    "kupuriCyan": "#00E5FF",
+    "kupuriBlue": "#2962FF",
+    "kupuriViolet": "#8a2be2"
+  },
+  "ecosystem": [
+    {
+      "id": "branding",
+      "title": {
+        "es": "Identidad y Alma",
+        "en": "Identity & Soul"
+      },
+      "description": {
+        "es": "Branding ancestral para leyendas modernas.",
+        "en": "Ancestral branding for modern legends."
+      },
+      "link": "https://kupuri.media/branding",
+      "tags": ["Visual", "Heritage"],
+      "image": "/projects/branding.webp"
+    },
+    {
+      "id": "film",
+      "title": {
+        "es": "CDMX Cinematográfico",
+        "en": "Cinematographic CDMX"
+      },
+      "description": {
+        "es": "Producción de alta gama en el corazón de México.",
+        "en": "High-end production in the heart of Mexico."
+      },
+      "link": "https://kupuri.media/film",
+      "tags": ["Video", "Production"],
+      "image": "/projects/film.webp"
+    },
+    {
+      "id": "digital",
+      "title": {
+        "es": "Experiencias Digitales",
+        "en": "Digital Experiences"
+      },
+      "description": {
+        "es": "Mundos interactivos que trascienden pantallas.",
+        "en": "Interactive worlds that transcend screens."
+      },
+      "link": "https://kupuri.media/digital",
+      "tags": ["Tech", "Innovation"],
+      "image": "/projects/digital.webp"
+    }
+  ],
+  "services": [
+    {
+      "id": 1,
+      "title": {
+        "es": "Mezcal Ancestral",
+        "en": "Ancestral Mezcal"
+      },
+      "category": "BRANDING",
+      "image": "/proj1.webp"
+    },
+    {
+      "id": 2,
+      "title": {
+        "es": "Noches Roma Norte",
+        "en": "Roma Norte Nights"
+      },
+      "category": "FILM",
+      "image": "/proj2.webp"
+    },
+    {
+      "id": 3,
+      "title": {
+        "es": "CDMX Modernista",
+        "en": "Modernist CDMX"
+      },
+      "category": "DIGITAL",
+      "image": "/proj3.webp"
+    }
+  ],
+  "contact": {
+    "successMessage": {
+      "es": "Tu alma ha sido recibida. Espera una señal pronto.",
+      "en": "Your soul has been received. Expect a signal shortly."
+    },
+    "fields": {
+      "name": {
+        "es": "Nombre",
+        "en": "Name"
+      },
+      "email": {
+        "es": "Email",
+        "en": "Email"
+      },
+      "projectType": {
+        "es": "Tipo de Proyecto",
+        "en": "Project Type"
+      },
+      "budget": {
+        "es": "Presupuesto",
+        "en": "Budget"
+      },
+      "message": {
+        "es": "Mensaje",
+        "en": "Message"
+      }
+    },
+    "projectTypes": [
+      {
+        "es": "Branding",
+        "en": "Branding"
+      },
+      {
+        "es": "Cine",
+        "en": "Film"
+      },
+      {
+        "es": "Digital",
+        "en": "Digital"
+      },
+      {
+        "es": "Consultoría",
+        "en": "Consulting"
+      }
+    ],
+    "budgetRanges": [
+      "< $10,000 USD",
+      "$10,000 - $50,000 USD",
+      "$50,000 - $100,000 USD",
+      "> $100,000 USD"
+    ]
+  }
+}

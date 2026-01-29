@@ -1,0 +1,180 @@
+# ============================================
+# VERCEL ENVIRONMENT VARIABLES
+# ============================================
+# Copy and paste these into Vercel Dashboard:
+# Settings → Environment Variables
+# ============================================
+
+# --------------------------------------------
+# REQUIRED (for basic functionality)
+# --------------------------------------------
+
+# None required - site works without any env vars!
+
+
+# --------------------------------------------
+# OPTIONAL - CloudBot Backend Integration
+# --------------------------------------------
+
+NEXT_PUBLIC_CLOUDBOT_URL=https://cloudbot.yourdomain.com
+
+# Or for local testing:
+# NEXT_PUBLIC_CLOUDBOT_URL=http://localhost:18789
+
+
+# --------------------------------------------
+# OPTIONAL - Supabase Database Integration
+# (for storing contact form submissions)
+# --------------------------------------------
+
+NEXT_PUBLIC_SUPABASE_URL=https://your-project-id.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key_here
+
+# Get these from: https://app.supabase.com/project/_/settings/api
+# 1. Go to your Supabase project
+# 2. Settings → API
+# 3. Copy "Project URL" and "anon public" key
+
+
+# --------------------------------------------
+# OPTIONAL - Resend Email Integration
+# (for email notifications on form submissions)
+# --------------------------------------------
+
+RESEND_API_KEY=re_your_api_key_here
+CONTACT_EMAIL=your-email@kupuri.media
+
+# Get API key from: https://resend.com/api-keys
+# 1. Sign up at resend.com
+# 2. API Keys → Create API Key
+# 3. Copy the key (starts with "re_")
+
+
+# ============================================
+# DEPLOYMENT INSTRUCTIONS
+# ============================================
+
+# 1. Go to Vercel Dashboard:
+#    https://vercel.com/jimmy-bowers-s-projects/synthia/settings/environment-variables
+
+# 2. For each variable above you want to use:
+#    - Click "Add New"
+#    - Name: (copy variable name, e.g., NEXT_PUBLIC_CLOUDBOT_URL)
+#    - Value: (paste your actual value)
+#    - Environment: Select "Production" (and optionally Preview/Development)
+#    - Click "Save"
+
+# 3. After adding variables, redeploy:
+#    - Go to Deployments tab
+#    - Click "..." on latest deployment
+#    - Click "Redeploy"
+
+# ============================================
+# QUICK START (NO ENV VARS NEEDED)
+# ============================================
+
+# The site works perfectly without any environment variables!
+# 
+# What works without env vars:
+# ✅ Full bilingual site
+# ✅ Language toggle
+# ✅ All animations
+# ✅ Contact form UI
+# ✅ Service grid filtering
+# ✅ All navigation
+#
+# What needs env vars:
+# ❌ Saving form submissions to database (needs Supabase)
+# ❌ Sending email notifications (needs Resend)
+# ❌ CloudBot integration (needs backend URL)
+#
+# You can deploy NOW and add integrations later!
+
+# ============================================
+# INTEGRATION SETUP GUIDES
+# ============================================
+
+# SUPABASE SETUP (5 minutes)
+# ---------------------------
+# 1. Go to: https://supabase.com
+# 2. Create new project (free tier available)
+# 3. Go to SQL Editor
+# 4. Run this SQL:
+
+CREATE TABLE leads (
+  id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
+  name text NOT NULL,
+  email text NOT NULL,
+  project_type text NOT NULL,
+  budget text NOT NULL,
+  message text NOT NULL,
+  created_at timestamp with time zone DEFAULT timezone('utc'::text, now()) NOT NULL
+);
+
+# 5. Get your credentials from Settings → API
+# 6. Add to Vercel environment variables (see above)
+# 7. Uncomment Supabase code in: apps/web/app/api/contact/route.ts
+# 8. Redeploy
+
+
+# RESEND SETUP (2 minutes)
+# -------------------------
+# 1. Go to: https://resend.com
+# 2. Sign up (free tier: 100 emails/day)
+# 3. API Keys → Create API Key
+# 4. Add to Vercel environment variables (see above)
+# 5. Uncomment Resend code in: apps/web/app/api/contact/route.ts
+# 6. Redeploy
+
+
+# ============================================
+# TESTING ENVIRONMENT VARIABLES
+# ============================================
+
+# To test if your env vars are working:
+
+# 1. After deployment, open browser console on your site
+# 2. Try submitting the contact form
+# 3. Check Network tab for /api/contact response
+# 4. If Supabase is set up, check your Supabase dashboard for new row
+# 5. If Resend is set up, check your email inbox
+
+# ============================================
+# TROUBLESHOOTING
+# ============================================
+
+# Environment variable not working?
+# ---------------------------------
+# ✓ Check spelling (exact match, case-sensitive)
+# ✓ Make sure NEXT_PUBLIC_ prefix for client-side vars
+# ✓ Redeploy after adding variables
+# ✓ Clear browser cache
+# ✓ Check Vercel deployment logs
+
+# Contact form not saving to database?
+# ------------------------------------
+# ✓ Verify Supabase table created
+# ✓ Check Supabase credentials are correct
+# ✓ Verify code is uncommented in /api/contact/route.ts
+# ✓ Check Vercel function logs for errors
+
+# Not receiving emails?
+# ---------------------
+# ✓ Verify Resend API key is valid
+# ✓ Check CONTACT_EMAIL is set correctly
+# ✓ Verify code is uncommented in /api/contact/route.ts
+# ✓ Check Resend dashboard for delivery status
+
+# ============================================
+# RECOMMENDED SETUP
+# ============================================
+
+# For production use:
+# 1. Deploy NOW without env vars (site works great!)
+# 2. Set up Supabase (to store leads)
+# 3. Set up Resend (to get email notifications)
+# 4. Redeploy with new env vars
+
+# This way you can launch immediately and add integrations incrementally!
+
+# ============================================

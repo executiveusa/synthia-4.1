@@ -1,19 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --gold-deep: #8B6914;
+  --gold-bright: #C9A227;
+  --gold-light: #F0E6C8;
+  --cream: #FAFAF8;
+  --cream-dark: #F3EDE4;
+  --text-dark: #1A1612;
+  --text-mid: #4A3F35;
+  --border: #E2D9CE;
+}
 
 @layer base {
   * {
     box-sizing: border-box;
   }
 
-  html,
-  body,
-  #root {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  html, body {
     width: 100%;
-    height: 100%;
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    background-color: var(--cream);
+    color: var(--text-dark);
+    font-family: 'Poppins', sans-serif;
   }
 }
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  14% { transform: scale(1.1); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.1); }
+  56%  { transform: scale(1); }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 12s linear infinite;
+}
+
+.animate-heartbeat {
+  animation: heartbeat 2s ease-in-out infinite;
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s ease both;
+}
+
+.font-display {
+  font-family: 'Lora', serif;
+}
+
